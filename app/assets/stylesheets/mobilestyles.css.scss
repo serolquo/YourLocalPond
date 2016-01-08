@@ -1,0 +1,319 @@
+// Place all the styles related to the Profile controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$font_fam: arial, helvetica, verdana, sans-serif;
+$header_box_shadow: 0px 1px 5px #888;
+$box_shadow: 1px 1px 3px #888;
+$main_color: #FF9900;
+$main_color_hilite: #FFCC00;
+
+body {
+  background-color: white;
+  color: #333;
+  font-family: $font_fam;
+  font-size: 10pt;
+  line-height: 12pt; 
+  text-align:justify;
+  text-justify:inter-word;
+  margin:0;
+  padding:0; }
+
+p, ol, ul, td {
+  font-family: $font_fam;
+  font-size: 10pt;
+  text-align: left;
+  line-height: 14pt; }
+  
+a {
+  text-decoration: none;
+  color: blue;
+  &:visited {
+    color: #666; }
+  &:hover {
+    color: red;
+    } 
+  
+  &.change_location_text {
+    font: {
+      size: 8pt;
+    }
+  }
+}
+
+h2 {
+  padding: 0;
+  margin: 0;
+  font: {
+    size: 12pt;
+  }
+  color: gray;
+
+}
+
+div{
+  
+  &#header {
+    padding: 1px;
+    height: 55px;
+    border-width: 1px;
+    z-index: 1;
+    background-color: white;
+    box-shadow: $header_box_shadow;
+  }
+  
+  #header_logo {
+    margin-left: 10px;
+    position: absolute;
+    font-size: 48pt;  
+    margin-top: 10px;
+    margin-bottom: 20px;
+    color: $main_color;
+    
+  }
+  
+  &#container {
+    background-color: white;
+    margin-top: 25px;
+    margin-left: 10px;
+    position: absolute;
+  }
+  
+  &#friendslist {
+    text-align: left;
+  }
+  
+  &#friend {
+    margin-bottom: 10px;
+    text-align: left;
+    display: inline-block;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 105px;
+  }
+  &#filter {
+    text-align: left;
+    margin-bottom: 25px;
+    
+    ul, li {
+      font-family: $font_fam;
+      display: inline;
+      list-style: none outside none;
+      margin: 20px;
+      padding: 0;
+      font-size: 14pt;
+      
+    }
+    li {
+      a {
+        color: $main_color;
+        &:hover {
+          color: $main_color_hilite;
+        }
+        &.active {
+          border-bottom: 2px solid $main_color;          
+        }
+      }
+      
+    }
+    
+  }
+  
+  &#show_more {
+    text-align:center;
+    padding-top: 20px;
+  }
+  
+  &#loading {
+    text-align:center;
+    color: gray;
+    font-weight: bold;
+  } 
+  
+  &#slogan {
+    text-align:left;
+    font-style: italic;
+    color: $main_color;
+    padding-bottom: 15px;
+  }
+  
+  &#footer {
+    display: inline;
+    //text-align: center;
+    width: 100%;
+    position: absolute;
+    ul, li {
+      font-family: $font_fam;
+      display: inline;
+      list-style: none outside none;
+      margin: 0;
+      padding: 0;
+      font-size: 9pt;
+    }
+    margin-top:50px;
+    bottom: 10px;
+    
+  }
+  
+}
+
+.friend_name {
+  color: gray;
+  font-weight: bold;
+}
+
+.header_logout {
+  font-size: 12pt;
+}
+
+.button {
+  background-color: $main_color;
+  color: #fff;
+  border: {
+    radius: 3px;
+    width: 1px;
+    style: solid;
+    color: #babdb6;   
+  }
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 10pt;
+  &:hover {
+    background-color: $main_color_hilite;
+    color: #fff;
+  }
+}
+
+.social_button_container {
+  overflow: hidden; 
+}
+
+.social-button {
+  float: left;
+  width: 100px;
+  height: 20px;
+}
+
+input{
+  &.login_box,&.text_field {
+    border: {
+      style: solid;
+      width: 1px;
+      color: #babdb6;
+    }
+    width: 240px;
+    margin-bottom: 2px;
+  }
+}
+
+textarea {
+  &.text_field {
+    border: {
+      style: solid;
+      width: 1px;
+      color: #babdb6;
+    }
+  }
+}
+
+
+
+
+/*
+------------------------------
+Impromptu
+------------------------------
+*/
+.jqifade{
+  position: absolute;
+  background-color: #777777;
+}
+
+div.jqi{
+  width: 400px;
+  font-family: $font_fam;
+  position: absolute;
+  background-color: #ffffff;
+  font-size: 10pt;
+  text-align: left;
+  border: solid 1px #eeeeee;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 7px;
+}
+
+div.jqi .jqicontainer{
+  font-weight: normal;
+}
+
+div.jqi .jqiclose{
+  position: absolute;
+  top: 4px; right: -2px;
+  width: 18px;
+  cursor: default;
+  color: #bbbbbb;
+  font-weight: bold;
+}
+
+div.jqi .jqimessage{
+  padding: 10px;
+  color: #444444;
+}
+div.jqi .jqibuttons{
+  text-align: right;
+  padding: 5px 0 5px 0;
+}
+
+div.jqi button{
+  padding: 3px 10px;
+  margin: 0 10px;
+  background-color: #2F6073;
+  border: solid 1px #f4f4f4;
+  color: #333;
+  font-weight: bold;
+  font-size: 12px;
+  border: {
+    radius: 3px;
+    style: none;
+    width: 1px;
+    style: solid;
+    color: #babdb6;      
+  }
+}
+
+div.jqi button:hover{
+  background-color: $main_color_hilite;
+}
+
+div.jqi button.jqidefaultbutton{
+  background-color: $main_color;
+  &:hover { 
+    background-color: $main_color_hilite;
+  }    
+}
+
+.jqiwarning .jqi .jqibuttons{
+  background-color: #BF5E26;
+}
+
+.jqi .jqiarrow{ position: absolute; height: 0; width:0; line-height: 0; font-size: 0; border: solid 10px transparent;}
+
+.jqi .jqiarrowtl{ left: 10px; top: -20px; border-bottom-color: #ffffff; }
+.jqi .jqiarrowtc{ left: 50%; top: -20px; border-bottom-color: #ffffff; margin-left: -10px; }
+.jqi .jqiarrowtr{ right: 10px; top: -20px; border-bottom-color: #ffffff; }
+
+.jqi .jqiarrowbl{ left: 10px; bottom: -20px; border-top-color: #ffffff; }
+.jqi .jqiarrowbc{ left: 50%; bottom: -20px; border-top-color: #ffffff; margin-left: -10px; }
+.jqi .jqiarrowbr{ right: 10px; bottom: -20px; border-top-color: #ffffff; }
+
+.jqi .jqiarrowlt{ left: -20px; top: 10px; border-right-color: #ffffff; }
+.jqi .jqiarrowlm{ left: -20px; top: 50%; border-right-color: #ffffff; margin-top: -10px; }
+.jqi .jqiarrowlb{ left: -20px; bottom: 10px; border-right-color: #ffffff; }
+
+.jqi .jqiarrowrt{ right: -20px; top: 10px; border-left-color: #ffffff; }
+.jqi .jqiarrowrm{ right: -20px; top: 50%; border-left-color: #ffffff; margin-top: -10px; }
+.jqi .jqiarrowrb{ right: -20px; bottom: 10px; border-left-color: #ffffff; }

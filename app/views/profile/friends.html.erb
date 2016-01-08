@@ -1,0 +1,52 @@
+<div id="container">
+<div id="filter">
+<ul>
+	<li><%= link_to 'Females', profile_friends_path(current_user.id,:gender=>'female'), :id=>'female_link', :class=>"active", method: :get, :remote => true%></li> 
+	<li><%= link_to 'Males', profile_friends_path(current_user.id,:gender=>'male'), :id=>'male_link', method: :get, :remote => true%></li>
+</ul>
+</div>
+<div id="friendslist">
+<%@friends.each do |friend|%>
+<div id="friend">
+	<span class="friend_name"><%=friend.name%></span><br/>
+	<span id="<%=friend.facebook_id%>">
+	<%if @love_interests_facebook_ids.include?(friend.facebook_id.to_i)%>
+		<%= link_to image_tag('check.png', :id => "img_#{friend.facebook_id}"), profile_not_interested_in_path(current_user.id,:uid=>friend.facebook_id), :id => "link_#{friend.facebook_id}", method: :post, :remote => true%>
+	<%else%>
+		<%= link_to image_tag('uncheck.png', :id => "img_#{friend.facebook_id}"), profile_interested_in_path(current_user.id,:uid=>friend.facebook_id), :id => "link_#{friend.facebook_id}", method: :post, :remote => true%>
+	<%end%>
+	</span>
+	<%=image_tag(friend.fb_pic_url)%>
+</div>
+<%end%>
+</div>
+<div id="loading">
+	<%=image_tag('loading.gif')%><br/>loading
+</div>
+<div id="show_more">
+	<%= link_to 'Show More Friends', profile_friends_path(current_user.id,:gender=>@gender,:page=>@page+1), :id=>"show_more_friends", :class=>"button", method: :get, :remote => true%>
+</div>
+
+</div>
+<%if @friends.size < @max_per_page%>
+<script>$("#show_more_friends").hide();</script>
+<%end%>
+<script>$("#loading").hide();
+
+$("#female_link").bind("click", function() {
+  $("#loading").show();
+  $("#friendslist").hide();
+  $("#show_more_friends").hide();
+});
+
+$("#male_link").bind("click", function() {
+  $("#loading").show();
+  $("#friendslist").hide();
+  $("#show_more_friends").hide();
+});
+
+$("#show_more").bind("click", function() {
+  $("#loading").show();
+});
+
+</script>

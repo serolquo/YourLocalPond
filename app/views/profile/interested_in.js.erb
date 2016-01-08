@@ -1,0 +1,5 @@
+<%if @message%>$.prompt('<%=@message%>');
+<%else%>
+$( "#link_<%=params['uid']%>").attr('href','<%=url_for(profile_not_interested_in_path(current_user.id,:uid=>params['uid']))%>');
+$( "#img_<%=params['uid']%>").attr('src','<%=path_to_image('check.png')%>');
+<%end%>

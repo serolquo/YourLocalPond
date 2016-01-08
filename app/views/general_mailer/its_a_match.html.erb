@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<style type="text/css" media="screen">
+	body {
+		background-color: white;
+		color: #333;
+		font-family: arial, helvetica, verdana, sans-serif;
+		font-size: 10pt;
+		line-height: 12pt; 
+		text-align:justify;
+	}
+    </style>
+</head>
+<body>
+<h3>Congratulations <%= @user1.first_name %> and <%= @user2.first_name %>!</h3>
+It looks like both of you have expressed interest in each other.<br/> 
+What are you waiting for? It's time to contact each other directly<br/> 
+and begin an exciting new phase of your relationship.<br/><br/> 
+
+<img alt="Yourlocalpond" src="<%=@user1_pic_url%>" />
+<%= image_tag('check.png', :alt=>'hearts') %>
+<img alt="Yourlocalpond" src="<%=@user2_pic_url%>" />
+<br/><br/>
+
+Best of luck,<br/>
+<%= image_tag('yourlocalpond_small.png') %>
+</body>
+</html>

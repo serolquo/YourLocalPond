@@ -1,0 +1,3 @@
+== Your Local Pond
+
+This is a web app that allows people to express interests with their FB friends. The users will be notified if there is mutual interest.

@@ -1,0 +1,8 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  error422_too_many_interests: "You already have too many love interests. Try removing some first before adding more."
+  error_generic: "We encountered an error processing your request. Please try again later."
+  error_previously_matched: "You have been matched up with this person previously."

@@ -1,0 +1,31 @@
+$( "#friendslist").<%if @page == 0%>html<%else%>append<%end%>('\
+<%@friends.each do |friend|%>\
+<div id="friend">\
+	<span class="friend_name"><%=friend.name%></span><br/>\
+	<span id="<%=friend.facebook_id%>">\
+	<%if @love_interests_facebook_ids.include?(friend.facebook_id.to_i)%>\
+		<%= link_to image_tag('check.png', :id => "img_#{friend.facebook_id}"), profile_not_interested_in_path(current_user.id,:uid=>friend.facebook_id), :id => "link_#{friend.facebook_id}", method: :post, :remote => true%>\
+	<%else%>\
+		<%= link_to image_tag('uncheck.png', :id => "img_#{friend.facebook_id}"), profile_interested_in_path(current_user.id,:uid=>friend.facebook_id), :id => "link_#{friend.facebook_id}", method: :post, :remote => true%>\
+	<%end%>\
+	</span>\
+	<%=image_tag(friend.fb_pic_url)%>\
+</div>\
+<%end%>\
+');
+<%if @gender == 'male'%>
+$( "#male_link").attr('class','active');
+$( "#female_link").attr('class','');
+<%else%>
+$( "#male_link").attr('class','');
+$( "#female_link").attr('class','active');
+<%end%>
+<%if @friends.size == @max_per_page%>
+$("#show_more_friends").attr('href','<%=url_for(profile_friends_path(current_user.id,:gender=>@gender,:page=>@page+1))%>');
+$("#show_more_friends").show();
+<%else%>
+$("#show_more_friends").hide();
+<%end%>
+<%if @message%>$.prompt('<%=@message%>');<%end%>
+$("#loading").hide();
+$("#friendslist").show();
